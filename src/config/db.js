@@ -1,0 +1,29 @@
+
+// const { Pool } = require("pg");
+
+// const pool = new Pool({
+//   host: "localhost",
+//   user: "postgres",
+//   password: "root",
+//   database: "dc_hms",
+//   port: 5432,
+//   connectionString: process.env.DATABASE_URL,
+// });
+
+// module.exports = pool;
+// src/config/db.js
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: 5432,
+});
+
+pool.query("SELECT 1")
+  .then(() => console.log("DB connected"))
+  .catch(console.error);
+
+module.exports = pool;
