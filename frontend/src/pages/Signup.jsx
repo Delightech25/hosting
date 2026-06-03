@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
 
   try {
     const res = await axios.post(
-      "http://localhost:8000/api/users/signup",
+      "https://frontend-delta-sage-97.vercel.app/api/auth/signup",
       {
         name: form.name,
         email: form.email,

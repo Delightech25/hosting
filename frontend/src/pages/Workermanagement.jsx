@@ -105,7 +105,11 @@ const matchesSearch =
   const fetchWorkers = async () => {
     
     try {
-const res = await axios.get("http://localhost:8000/api/workers");
+const res = await axios.get("https://frontend-delta-sage-97.vercel.app/api/users/supervisor/helpers", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    } );
 console.log("API DATA:", res.data);
       if (res.data.success) {
         setWorkers(res.data.data);

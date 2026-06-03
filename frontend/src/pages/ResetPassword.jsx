@@ -25,7 +25,7 @@ export default function ResetPassword() {
     try {
 
       const res = await axios.post(
-        `http://localhost:8000/api/auth/reset-password/${token}`,
+        `https://frontend-delta-sage-97.vercel.app/api/auth/reset-password/${token}`,
         { password }
       );
 

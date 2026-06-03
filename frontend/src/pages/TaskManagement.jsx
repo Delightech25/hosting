@@ -143,7 +143,7 @@ const openView = (item) => {
 
 const submitRequest = async () => {
   try {
-    await axios.post("http://localhost:8000/api/requests", {
+    await axios.post("https://frontend-delta-sage-97.vercel.app/api/requests", {
       worker_name: workerContext.name,
       item_id: selectedItem.id,
       quantity: Number(requestQty),
@@ -166,7 +166,7 @@ const submitRequest = async () => {
 
 const fetchInventory = async () => {
   try {
-    const res = await axios.get("http://localhost:8000/api/inventory");
+    const res = await axios.get("https://frontend-delta-sage-97.vercel.app/api/inventory");
 
     // if your API returns data directly:
     setInventory(res.data.data);

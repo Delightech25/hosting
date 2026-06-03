@@ -154,7 +154,7 @@ const goToAttendance = () => {
 const startTask = async (id) => {
   try {
     await axios.put(
-      `http://localhost:8000/api/tasks/${id}`,
+      `https://frontend-delta-sage-97.vercel.app/api/tasks/${id}`,
       {
         status: "In Progress",
       }
@@ -170,7 +170,7 @@ const startTask = async (id) => {
 const completeTask = async (id) => {
   try {
     await axios.put(
-      `http://localhost:8000/api/tasks/${id}`,
+      `https://frontend-delta-sage-97.vercel.app/api/tasks/${id}`,
       {
         status: "Completed",
       }
@@ -191,7 +191,7 @@ const consumeItem = async (item, qty) => {
   try {
 
     const response = await axios.post(
-      "http://localhost:8000/api/inventory/consume",
+      "https://frontend-delta-sage-97.vercel.app/api/inventory/consume",
       {
         inventoryId: item.id,
         quantity: qty,
@@ -238,7 +238,7 @@ useEffect(() => {
       try {
 
         await fetch(
-          "http://localhost:8000/api/location/worker/update",
+          "https://frontend-delta-sage-97.vercel.app/api/location/worker/update",
           {
             method: "POST",
 
@@ -293,25 +293,25 @@ const fetchDashboardData = async () => {
 
     // Attendance
     const attendanceRes = await axios.get(
-      "http://localhost:8000/api/attendance",
+      "https://frontend-delta-sage-97.vercel.app/api/attendance",
       config
     );
 
     // Tasks
     const tasksRes = await axios.get(
-      "http://localhost:8000/api/tasks",
+      "https://frontend-delta-sage-97.vercel.app/api/tasks",
       config
     );
 
     // Inventory
     const inventoryRes = await axios.get(
-      "http://localhost:8000/api/inventory",
+      "https://frontend-delta-sage-97.vercel.app/api/inventory",
       config
     );
 
     //Inventory History
 const historyRes = await axios.get(
-  "http://localhost:8000/api/inventory/history"
+  "https://frontend-delta-sage-97.vercel.app/api/inventory/history"
 );
 
 setAttendanceHistory(attendanceRes.data.data || []);

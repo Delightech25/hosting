@@ -52,7 +52,7 @@ export default function AdminMap() {
       try {
         // 🔥 Fetch live employee data
         const res = await fetch(
-          "http://localhost:8000/api/presence"
+          "https://frontend-delta-sage-97.vercel.app"
         );
 
         const data = await res.json();
