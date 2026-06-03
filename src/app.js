@@ -8,7 +8,10 @@ const app = express(); // ✅ FIRST create app
 
 // ✅ Middleware FIRST
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: [
+    "http://localhost:3000",
+    "https://frontend-delta-sage-97.vercel.app"
+  ],
   credentials: true
 }));
 
