@@ -414,8 +414,8 @@ const capturePhoto = async () => {
 try {
   const url =
     captureType === "IN"
-      ? `https://frontend-delta-sage-97.vercel.app/${selectedRecord.id}/check-in-photo`
-      : `https://frontend-delta-sage-97.vercel.app/${selectedRecord.id}/check-out-photo`;
+      ? `https://backend-orcin-seven-49.vercel.app//${selectedRecord.id}/check-in-photo`
+      : `https://backend-orcin-seven-49.vercel.app//${selectedRecord.id}/check-out-photo`;
 
   const blob = base64ToBlob(imageSrc);
 
@@ -458,7 +458,7 @@ const isToday = (day) => {
 
 const fetchAttendance = async () => {
   try {
-    const res = await axios.get("https://frontend-delta-sage-97.vercel.app/api/attendance");
+    const res = await axios.get("https://backend-orcin-seven-49.vercel.app//api/attendance");
 
     console.log("API FULL:", res.data.data);
 
@@ -960,7 +960,7 @@ sx={{
 src={
   selectedRecord.inPhoto?.startsWith("data:")
     ? selectedRecord.inPhoto
-    : `https://frontend-delta-sage-97.vercel.app/${selectedRecord.inPhoto}`
+    : `https://backend-orcin-seven-49.vercel.app//${selectedRecord.inPhoto}`
 }                      alt="IN"
                       sx={{
                         width: "100%",
@@ -989,7 +989,7 @@ src={
 src={
   selectedRecord.outPhoto?.startsWith("data:")
     ? selectedRecord.outPhoto
-    : `https://frontend-delta-sage-97.vercel.app/${selectedRecord.outPhoto}`
+    : `https://backend-orcin-seven-49.vercel.app//${selectedRecord.outPhoto}`
 }
                       alt="OUT"
                       sx={{

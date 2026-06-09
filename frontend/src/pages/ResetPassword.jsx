@@ -25,7 +25,7 @@ export default function ResetPassword() {
     try {
 
       const res = await axios.post(
-        `https://frontend-delta-sage-97.vercel.app/api/auth/reset-password/${token}`,
+        `https://backend-orcin-seven-49.vercel.app//api/auth/reset-password/${token}`,
         { password }
       );
 

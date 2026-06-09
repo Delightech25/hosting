@@ -102,12 +102,12 @@ const fetchData = async () => {
     };
 
     const profileRes = await axios.get(
-      "https://frontend-delta-sage-97.vercel.app/api/auth/me",
+      "https://backend-orcin-seven-49.vercel.app//api/auth/me",
       { headers }
     );
 
     const teamRes = await axios.get(
-      "https://frontend-delta-sage-97.vercel.app/api/users/supervisor/helpers",
+      "https://backend-orcin-seven-49.vercel.app//api/users/supervisor/helpers",
       { headers }
     );
 

@@ -69,7 +69,7 @@ console.log("EMPLOYEE:", employeeId);
           // 🔥 SAVE TO BACKEND
           try {
             const res = await fetch(
-              "https://frontend-delta-sage-97.vercel.app/api/location",
+              "https://backend-orcin-seven-49.vercel.app//api/location",
               {
                 method: "POST",
 
@@ -119,7 +119,7 @@ console.log("EMPLOYEE:", employeeId);
     const fetchUsers = async () => {
       try {
         const res = await fetch(
-          "https://frontend-delta-sage-97.vercel.app/api/users"
+          "https://backend-orcin-seven-49.vercel.app//api/users"
         );
 
         const data = await res.json();

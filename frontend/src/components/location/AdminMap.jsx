@@ -52,7 +52,7 @@ export default function AdminMap() {
       try {
         // 🔥 Fetch live employee data
         const res = await fetch(
-          "https://frontend-delta-sage-97.vercel.app"
+          "https://backend-orcin-seven-49.vercel.app/"
         );
 
         const data = await res.json();

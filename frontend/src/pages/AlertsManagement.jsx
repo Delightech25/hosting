@@ -81,7 +81,7 @@ export default function WorkerAlerts() {
 const markAsRead = async (id) => {
   try {
     await axios.put(
-      `https://frontend-delta-sage-97.vercel.app/api/alerts/read/${id}`,
+      `https://backend-orcin-seven-49.vercel.app//api/alerts/read/${id}`,
       {},
       {
         headers: {
@@ -104,7 +104,7 @@ const markAsRead = async (id) => {
 
   try {
     await axios.post(
-      "https://frontend-delta-sage-97.vercel.app/api/alerts/send",
+      "https://backend-orcin-seven-49.vercel.app//api/alerts/send",
       {
         title: "Message from Worker",
         message,
@@ -125,7 +125,7 @@ const markAsRead = async (id) => {
 
   const fetchAlerts = async () => {
   try {
-    const res = await axios.get("https://frontend-delta-sage-97.vercel.app/api/alerts", {
+    const res = await axios.get("https://backend-orcin-seven-49.vercel.app//api/alerts", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

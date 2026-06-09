@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
 
   try {
     const res = await axios.post(
-      "https://frontend-delta-sage-97.vercel.app/api/auth/signup",
+      "https://backend-orcin-seven-49.vercel.app//api/auth/signup",
       {
         name: form.name,
         email: form.email,

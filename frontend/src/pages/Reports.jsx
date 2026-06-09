@@ -77,7 +77,7 @@ const handleReportData = (data) => {
   setAttendanceSummary(data.attendance || []);
 };
   useEffect(() => {
-    fetch("https://frontend-delta-sage-97.vercel.app/api/reports/worker-summary", {
+    fetch("https://backend-orcin-seven-49.vercel.app//api/reports/worker-summary", {
       headers: {
         Authorization: `Bearer ${token}`,
         
@@ -139,7 +139,7 @@ const handleReportData = (data) => {
   }, [token]);
 
 useEffect(() => {
-fetch("https://frontend-delta-sage-97.vercel.app/api/auth/me", {    headers: {
+fetch("https://backend-orcin-seven-49.vercel.app//api/auth/me", {    headers: {
       Authorization: `Bearer ${token}`,
     },
   })

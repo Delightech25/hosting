@@ -10,7 +10,7 @@ const app = express(); // ✅ FIRST create app
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://frontend-delta-sage-97.vercel.app"
+    "https://backend-orcin-seven-49.vercel.app/"
   ],
   credentials: true
 }));

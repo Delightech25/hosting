@@ -154,7 +154,7 @@ const goToAttendance = () => {
 const startTask = async (id) => {
   try {
     await axios.put(
-      `https://frontend-delta-sage-97.vercel.app/api/tasks/${id}`,
+      `https://backend-orcin-seven-49.vercel.app//api/tasks/${id}`,
       {
         status: "In Progress",
       }
@@ -170,7 +170,7 @@ const startTask = async (id) => {
 const completeTask = async (id) => {
   try {
     await axios.put(
-      `https://frontend-delta-sage-97.vercel.app/api/tasks/${id}`,
+      `https://backend-orcin-seven-49.vercel.app//api/tasks/${id}`,
       {
         status: "Completed",
       }
@@ -191,7 +191,7 @@ const consumeItem = async (item, qty) => {
   try {
 
     const response = await axios.post(
-      "https://frontend-delta-sage-97.vercel.app/api/inventory/consume",
+      "https://backend-orcin-seven-49.vercel.app//api/inventory/consume",
       {
         inventoryId: item.id,
         quantity: qty,
@@ -238,7 +238,7 @@ useEffect(() => {
       try {
 
         await fetch(
-          "https://frontend-delta-sage-97.vercel.app/api/location/worker/update",
+          "https://backend-orcin-seven-49.vercel.app//api/location/worker/update",
           {
             method: "POST",
 
@@ -293,25 +293,25 @@ const fetchDashboardData = async () => {
 
     // Attendance
     const attendanceRes = await axios.get(
-      "https://frontend-delta-sage-97.vercel.app/api/attendance",
+      "https://backend-orcin-seven-49.vercel.app//api/attendance",
       config
     );
 
     // Tasks
     const tasksRes = await axios.get(
-      "https://frontend-delta-sage-97.vercel.app/api/tasks",
+      "https://backend-orcin-seven-49.vercel.app//api/tasks",
       config
     );
 
     // Inventory
     const inventoryRes = await axios.get(
-      "https://frontend-delta-sage-97.vercel.app/api/inventory",
+      "https://backend-orcin-seven-49.vercel.app//api/inventory",
       config
     );
 
     //Inventory History
 const historyRes = await axios.get(
-  "https://frontend-delta-sage-97.vercel.app/api/inventory/history"
+  "https://backend-orcin-seven-49.vercel.app//api/inventory/history"
 );
 
 setAttendanceHistory(attendanceRes.data.data || []);

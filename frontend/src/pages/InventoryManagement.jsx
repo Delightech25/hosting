@@ -134,7 +134,7 @@ export default function WorkerInventory() {
 useEffect(() => {
   const fetchInventory = async () => {
     try {
-      const res = await axios.get("https://frontend-delta-sage-97.vercel.app/api/inventory");
+      const res = await axios.get("https://backend-orcin-seven-49.vercel.app//api/inventory");
 
 setInventory(res.data.data);
     } catch (err) {
