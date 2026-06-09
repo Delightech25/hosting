@@ -8,7 +8,7 @@ const authenticateToken = require("../middleware/auth.middleware");
  * GET PURGING SUMMARY
  * GET /api/purging/summary
  */
-router.get("/summary", authenticateToken, async (req, res) => {
+router.get("/summary", async (req, res) => {
   try {
     const totalPolicies = await db.query(
       "SELECT COUNT(*) FROM purge_policies"
@@ -22,13 +22,17 @@ router.get("/summary", authenticateToken, async (req, res) => {
       "SELECT COUNT(DISTINCT module) FROM purge_policies"
     );
 
+    console.log("Policies:", totalPolicies.rows);
+    console.log("Logs:", lastPurgeLogs.rows);
+    console.log("Modules:", modulesCovered.rows);
+
     res.status(200).json({
       totalPolicies: Number(totalPolicies.rows[0].count),
       lastPurgeLogs: Number(lastPurgeLogs.rows[0].count),
       modulesCovered: Number(modulesCovered.rows[0].count),
     });
   } catch (error) {
-    console.error("PURGING SUMMARY ERROR:", error);
+        console.error("PURGING SUMMARY ERROR:", error);
     res.status(500).json({ message: "Failed to fetch purging summary" });
   }
 });
@@ -38,33 +42,28 @@ router.get("/summary", authenticateToken, async (req, res) => {
  * GET ALL PURGE POLICIES
  * GET /api/purging/policies
  */
-router.get("/policies", authenticateToken, async (req, res) => {
+router.get("/policies", async (req, res) => {
+  console.log("POLICIES API HIT");
+
   try {
     const result = await db.query(`
-      SELECT
-        policy_id,
-        policy_name,
-        module,
-        duration_years,
-        action,
-        schedule,
-        status
+      SELECT *
       FROM purge_policies
       ORDER BY policy_id
     `);
 
+    console.log("ROWS:", result.rows);
+
     res.status(200).json(result.rows);
   } catch (error) {
-    console.error("FETCH POLICIES ERROR:", error);
-    res.status(500).json({ message: "Failed to fetch purge policies" });
+    console.error(error);
   }
 });
-
 /**
  * GET PURGE LOGS
  * GET /api/purging/logs
  */
-router.get("/logs", authenticateToken, async (req, res) => {
+router.get("/logs", async (req, res) => {
   try {
     const result = await db.query(`
       SELECT
@@ -90,7 +89,7 @@ router.get("/logs", authenticateToken, async (req, res) => {
  * RUN PURGE NOW
  * POST /api/purging/run
  */
-router.post("/run", authenticateToken, async (req, res) => {
+router.post("/run", async (req, res) => {
   const { policy_id } = req.body;
 
   if (!policy_id) {
@@ -139,7 +138,7 @@ router.post("/run", authenticateToken, async (req, res) => {
   }
 });
 
-router.post("/policies", authenticateToken, async (req, res) => {
+router.post("/policies", async (req, res) => {
   const {
     policy_id,
     policy_name,
@@ -167,7 +166,7 @@ router.post("/policies", authenticateToken, async (req, res) => {
   }
 });
 
-router.put("/policies/:id", authenticateToken, async (req, res) => {
+router.put("/policies/:id", async (req, res) => {
   const { id } = req.params;
   const {
     policy_name,

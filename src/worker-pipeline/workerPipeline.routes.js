@@ -10,7 +10,7 @@ const SLA_CONFIG = require("../config/pipelineSla.config");
    GET ALL WORKER APPLICATIONS (WITH SLA)
    GET /api/worker-pipeline
 ====================================================== */
-router.get("/", authenticateToken, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const result = await db.query(`
       SELECT
@@ -56,7 +56,7 @@ router.get("/", authenticateToken, async (req, res) => {
    UPDATE PIPELINE STAGE
    PUT /api/worker-pipeline/:applicationId/stage
 ====================================================== */
-router.put("/:applicationId/stage", authenticateToken, async (req, res) => {
+router.put("/:applicationId/stage", async (req, res) => {
   const { applicationId } = req.params;
   const { stage } = req.body;
 
@@ -201,7 +201,7 @@ const logPipelineAudit = async ({
    GET PIPELINE AUDIT LOGS
    GET /api/worker-pipeline/:applicationId/audit
 ====================================================== */
-router.get("/:applicationId/audit", authenticateToken, async (req, res) => {
+router.get("/:applicationId/audit", async (req, res) => {
   const { applicationId } = req.params;
 
   try {

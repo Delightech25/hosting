@@ -26,12 +26,15 @@ router.get(
   "/manager-dashboard",
   controller.getManagerTasks
 );
+
+/* TASK SUMMARY */
+router.get("/summary", controller.getTaskSummary);
+
 router.get("/:id", controller.getTaskById);
 
 /* UPDATE TASK STATUS (GPS BLOCKED COMPLETION) */
 router.put("/:id/status", controller.updateTaskStatus);
 
-/* TASK SUMMARY */
-router.get("/summary", controller.getTaskSummary);
+
 
 module.exports = router;

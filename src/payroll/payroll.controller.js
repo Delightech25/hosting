@@ -11,7 +11,6 @@ exports.getPayrollSummary = async (req, res) => {
 
 
     console.log("MONTH RECEIVED:", month);
-console.log("QUERY VALUE:", monthDate);
 
     const query = `
       SELECT

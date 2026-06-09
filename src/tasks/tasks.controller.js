@@ -5,9 +5,11 @@ const service = require("./tasks.service");
 const getTasks = async (req, res) => {
   try {
     const result = await db.query(`
-  SELECT 
+SELECT
     t.task_id AS id,
     t.title,
+    t.assigned_to_emp_id,
+    t.location_id,
     
     CASE 
       WHEN t.priority = 1 THEN 'Low'
